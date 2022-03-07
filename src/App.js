@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import TextForm from './components/TextForm/TextForm';
 
 function App() {
   return (
     <div className="">
-      Hello World!
+      <TextForm />
     </div>
   );
 }
