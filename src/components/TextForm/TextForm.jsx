@@ -21,10 +21,32 @@ const TextForm = () => {
         setText(event.target.value);
     }
 
+    const darkMode = () => {
+        if(mode.color === 'black'){
+            setMode({
+                color: 'white',
+                backgroundColor: 'black'
+            })
+            setModeBtn('Enable Light Mode')
+        }
+        else{
+            setMode({
+                color: 'black',
+                backgroundColor: 'white'
+            })
+            setModeBtn('Enable Dark Mode')
+        }
+    }
+
     const [text, setText] = useState('');
+    const [modeBtn, setModeBtn] = useState('Enable Dark Mode');
+    const [mode, setMode] = useState({
+                color: 'black',
+                backgroundColor: 'white'
+    })
 
   return (
-    <div>
+    <div style={mode}>
         <div>
             <textarea name="" id="" cols="30" rows="10" value={text} onChange={gettingInput} placeholder="Enter text here...."></textarea>
         </div>
@@ -32,6 +54,7 @@ const TextForm = () => {
             <button onClick={upperCase}>Convert to Upper Case</button>
             <button onClick={lowerCase}>Convert to Lower Case</button>
             <button onClick={clearText}>Clear Text</button>
+            <button onClick={darkMode}>{modeBtn}</button>
         </div>
         <div>
             <h3>Text Summary</h3>
