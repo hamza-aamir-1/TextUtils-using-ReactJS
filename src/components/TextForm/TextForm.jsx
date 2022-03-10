@@ -17,8 +17,8 @@ const TextForm = () => {
         setText('');
     }
 
-    const gettingInput = (event) => {
-        setText(event.target.value);
+    const copyText = () => {
+        navigator.clipboard.writeText(text);
     }
 
     const darkMode = () => {
@@ -38,6 +38,10 @@ const TextForm = () => {
         }
     }
 
+    const gettingInput = (event) => {
+        setText(event.target.value);
+    }
+
     const [text, setText] = useState('');
     const [modeBtn, setModeBtn] = useState('Enable Dark Mode');
     const [mode, setMode] = useState({
@@ -54,6 +58,7 @@ const TextForm = () => {
             <button onClick={upperCase}>Convert to Upper Case</button>
             <button onClick={lowerCase}>Convert to Lower Case</button>
             <button onClick={clearText}>Clear Text</button>
+            <button onClick={copyText}>Copy Text</button>
             <button onClick={darkMode}>{modeBtn}</button>
         </div>
         <div>
