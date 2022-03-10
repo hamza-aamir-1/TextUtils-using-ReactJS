@@ -21,6 +21,11 @@ const TextForm = () => {
         navigator.clipboard.writeText(text);
     }
 
+    const removeSpaces = () => {
+        const newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
+
     const darkMode = () => {
         if(mode.color === 'black'){
             setMode({
@@ -45,8 +50,8 @@ const TextForm = () => {
     const [text, setText] = useState('');
     const [modeBtn, setModeBtn] = useState('Enable Dark Mode');
     const [mode, setMode] = useState({
-                color: 'black',
-                backgroundColor: 'white'
+            color: 'black',
+            backgroundColor: 'white'
     })
 
   return (
@@ -59,6 +64,7 @@ const TextForm = () => {
             <button onClick={lowerCase}>Convert to Lower Case</button>
             <button onClick={clearText}>Clear Text</button>
             <button onClick={copyText}>Copy Text</button>
+            <button onClick={removeSpaces}>Remove Extra Spaces</button>
             <button onClick={darkMode}>{modeBtn}</button>
         </div>
         <div>
